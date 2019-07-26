@@ -1,4 +1,3 @@
-import { greeting, getUserName } from '..';
+import { playGame } from '..';
 
-greeting();
-getUserName();
+export default () => playGame();
