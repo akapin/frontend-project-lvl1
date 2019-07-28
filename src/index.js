@@ -10,7 +10,7 @@ export const getUserName = () => {
 
 export const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
-export const playGame = (gameDescription, getQuestion, getCorrectAnswer) => {
+export const playGame = (gameDescription, getQuestionAnswerPair) => {
   const gameRounds = 3;
   const correctAnswersCount = 0;
   greeting();
@@ -18,10 +18,9 @@ export const playGame = (gameDescription, getQuestion, getCorrectAnswer) => {
   const userName = getUserName();
 
   const iter = (acc) => {
-    const question = getQuestion();
+    const { question, correctAnswer } = getQuestionAnswerPair();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = getCorrectAnswer(question);
 
     if (userAnswer !== correctAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
@@ -35,5 +34,5 @@ export const playGame = (gameDescription, getQuestion, getCorrectAnswer) => {
     }
     iter(correctAnswersCounter);
   };
-  if (getQuestion && getCorrectAnswer) iter(correctAnswersCount);
+  if (getQuestionAnswerPair) iter(correctAnswersCount);
 };

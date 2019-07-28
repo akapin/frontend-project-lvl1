@@ -2,18 +2,16 @@ import { playGame, getRandomInteger } from '..';
 
 const gameDescription = 'What is the result of the expression?';
 
-const getQuestion = () => {
-  const min = 0;
-  const max = 100;
-  const a = getRandomInteger(min, max);
-  const b = getRandomInteger(min, max);
+const getMathExpressionString = (minNumber, maxNumber) => {
+  const a = getRandomInteger(minNumber, maxNumber);
+  const b = getRandomInteger(minNumber, maxNumber);
   const symbolMap = '+-*';
   const operator = symbolMap.charAt(getRandomInteger(0, 3));
   return `${a} ${operator} ${b}`;
 };
 
-const getCorrectAnswer = (question) => {
-  const expressionArray = question.split(' ');
+const getCorrectAnswer = (expression) => {
+  const expressionArray = expression.split(' ');
   const a = Number(expressionArray[0]);
   const b = Number(expressionArray[2]);
   const operator = expressionArray[1];
@@ -34,4 +32,12 @@ const getCorrectAnswer = (question) => {
   return String(result);
 };
 
-export default () => playGame(gameDescription, getQuestion, getCorrectAnswer);
+const getQuestionAnswerPair = () => {
+  const minNumber = 0;
+  const maxNumber = 100;
+  const question = getMathExpressionString(minNumber, maxNumber);
+  const correctAnswer = getCorrectAnswer(question);
+  return { question, correctAnswer };
+};
+
+export default () => playGame(gameDescription, getQuestionAnswerPair);

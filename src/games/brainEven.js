@@ -2,19 +2,14 @@ import { playGame, getRandomInteger } from '..';
 
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
-const getQuestion = () => {
-  const min = 0;
-  const max = 100;
-  return getRandomInteger(min, max);
-};
-
 const isEven = num => num % 2 === 0;
 
-const getCorrectAnswer = (question) => {
-  if (isEven(question)) {
-    return 'yes';
-  }
-  return 'no';
+const getQuestionAnswerPair = () => {
+  const minNumber = 0;
+  const maxNumber = 100;
+  const question = getRandomInteger(minNumber, maxNumber);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
+  return { question, correctAnswer };
 };
 
-export default () => playGame(gameDescription, getQuestion, getCorrectAnswer);
+export default () => playGame(gameDescription, getQuestionAnswerPair);
