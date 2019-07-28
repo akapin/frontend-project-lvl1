@@ -14,8 +14,8 @@ const getQuestion = () => {
 
 const getCorrectAnswer = (question) => {
   const expressionArray = question.split(' ');
-  const a = expressionArray[0];
-  const b = expressionArray[2];
+  const a = Number(expressionArray[0]);
+  const b = Number(expressionArray[2]);
   const operator = expressionArray[1];
   let result;
   switch (operator) {
