@@ -1,3 +1,7 @@
-import { playGame } from '..';
+import { showWelcomePrompt, getUserName, greetUser } from '..';
 
-export default () => playGame();
+export default () => {
+  showWelcomePrompt();
+  const userName = getUserName();
+  greetUser(userName);
+};

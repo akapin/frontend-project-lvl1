@@ -3,29 +3,30 @@ import { playGame, getRandomInteger } from '..';
 const gameDescription = 'What is the result of the expression?';
 
 const getMathExpressionString = (minNumber, maxNumber) => {
-  const a = getRandomInteger(minNumber, maxNumber);
-  const b = getRandomInteger(minNumber, maxNumber);
+  const firstOperand = getRandomInteger(minNumber, maxNumber);
+  const secondOperand = getRandomInteger(minNumber, maxNumber);
   const symbolMap = '+-*';
   const startIndex = 0;
-  const operator = symbolMap.charAt(getRandomInteger(startIndex, symbolMap.length));
-  return `${a} ${operator} ${b}`;
+  const randomIndex = getRandomInteger(startIndex, symbolMap.length);
+  const operator = symbolMap.charAt(randomIndex);
+  return `${firstOperand} ${operator} ${secondOperand}`;
 };
 
 const getExpressionResult = (expression) => {
   const expressionArray = expression.split(' ');
-  const a = Number(expressionArray[0]);
-  const b = Number(expressionArray[2]);
+  const firstOperand = Number(expressionArray[0]);
+  const secondOperand = Number(expressionArray[2]);
   const operator = expressionArray[1];
   let result;
   switch (operator) {
     case '+':
-      result = a + b;
+      result = firstOperand + secondOperand;
       break;
     case '-':
-      result = a - b;
+      result = firstOperand - secondOperand;
       break;
     case '*':
-      result = a * b;
+      result = firstOperand * secondOperand;
       break;
     default:
       break;

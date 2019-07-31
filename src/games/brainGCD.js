@@ -3,20 +3,20 @@ import { playGame, getRandomInteger } from '..';
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getTwoRandomNumbersString = (minNumber, maxNumber) => {
-  const a = getRandomInteger(minNumber, maxNumber);
-  const b = getRandomInteger(minNumber, maxNumber);
-  return `${a} ${b}`;
+  const firstNumber = getRandomInteger(minNumber, maxNumber);
+  const secondNumber = getRandomInteger(minNumber, maxNumber);
+  return `${firstNumber} ${secondNumber}`;
 };
 
 const getGDC = (numbersString) => {
   const numbersArray = numbersString.split(' ');
-  const num1 = Number(numbersArray[0]);
-  const num2 = Number(numbersArray[1]);
+  const number1 = Number(numbersArray[0]);
+  const number2 = Number(numbersArray[1]);
   const iter = (a, b) => {
     if (!b) return a;
     return iter(b, a % b);
   };
-  return String(iter(num1, num2));
+  return String(iter(number1, number2));
 };
 
 const getQuestionAnswerPair = () => {

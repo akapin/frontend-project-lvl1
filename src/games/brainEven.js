@@ -2,7 +2,7 @@ import { playGame, getRandomInteger } from '..';
 
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
-const isEven = num => num % 2 === 0;
+const isEven = number => number % 2 === 0;
 
 const getQuestionAnswerPair = () => {
   const minNumber = 0;

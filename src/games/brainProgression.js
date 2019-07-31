@@ -30,8 +30,8 @@ const getQuestionAnswerPair = () => {
   const maxSkipStep = 10;
   const hiddenElement = getRandomInteger(minSkipStep, maxSkipStep);
   const progressionString = getProgressionString(steps, startNumber, step, hiddenElement);
-  const missingNumber = String(getMissingNumber(startNumber, step, hiddenElement));
-  return { question: progressionString, correctAnswer: missingNumber };
+  const missingNumber = getMissingNumber(startNumber, step, hiddenElement);
+  return { question: progressionString, correctAnswer: String(missingNumber) };
 };
 
 export default () => playGame(gameDescription, getQuestionAnswerPair);

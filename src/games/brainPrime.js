@@ -2,11 +2,12 @@ import { playGame, getRandomInteger } from '..';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-const isPrimeNumber = (n) => {
-  if (n === 1) return 'no';
-  if (n === 2) return 'yes';
-  for (let x = 2; x < n; x += 1) {
-    if (n % x === 0) return 'no';
+const isPrimeNumber = (number) => {
+  if (number === 1) return 'no';
+  if (number === 2) return 'yes';
+  const startDivisor = 2;
+  for (let divisor = startDivisor; divisor < number; divisor += 1) {
+    if (number % divisor === 0) return 'no';
   }
   return 'yes';
 };
