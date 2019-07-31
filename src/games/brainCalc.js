@@ -6,7 +6,8 @@ const getMathExpressionString = (minNumber, maxNumber) => {
   const a = getRandomInteger(minNumber, maxNumber);
   const b = getRandomInteger(minNumber, maxNumber);
   const symbolMap = '+-*';
-  const operator = symbolMap.charAt(getRandomInteger(0, 3));
+  const startIndex = 0;
+  const operator = symbolMap.charAt(getRandomInteger(startIndex, symbolMap.length));
   return `${a} ${operator} ${b}`;
 };
 
