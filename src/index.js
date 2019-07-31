@@ -30,9 +30,9 @@ export const playGame = (gameDescription, getQuestionAnswerPair) => {
     const correctAnswersCounter = acc + 1;
     if (correctAnswersCounter === gameRounds) {
       console.log(`Congratulations, ${userName}!`);
-      return;
+    } else {
+      iter(correctAnswersCounter);
     }
-    iter(correctAnswersCounter);
   };
   if (getQuestionAnswerPair) iter(correctAnswersCount);
 };
