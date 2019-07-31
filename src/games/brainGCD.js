@@ -22,9 +22,9 @@ const getGDC = (numbersString) => {
 const getQuestionAnswerPair = () => {
   const minNumber = 0;
   const maxNumber = 100;
-  const question = getTwoRandomNumbersString(minNumber, maxNumber);
-  const correctAnswer = getGDC(question);
-  return { question, correctAnswer };
+  const twoRandomNumbersString = getTwoRandomNumbersString(minNumber, maxNumber);
+  const gdc = getGDC(twoRandomNumbersString);
+  return { question: twoRandomNumbersString, correctAnswer: gdc };
 };
 
 export default () => playGame(gameDescription, getQuestionAnswerPair);

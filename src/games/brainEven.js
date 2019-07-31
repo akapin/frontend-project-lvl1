@@ -7,9 +7,9 @@ const isEven = num => num % 2 === 0;
 const getQuestionAnswerPair = () => {
   const minNumber = 0;
   const maxNumber = 100;
-  const question = getRandomInteger(minNumber, maxNumber);
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
-  return { question, correctAnswer };
+  const randomInteger = getRandomInteger(minNumber, maxNumber);
+  const correctAnswer = isEven(randomInteger) ? 'yes' : 'no';
+  return { question: randomInteger, correctAnswer };
 };
 
 export default () => playGame(gameDescription, getQuestionAnswerPair);

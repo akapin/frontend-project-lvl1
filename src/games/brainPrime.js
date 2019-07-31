@@ -14,9 +14,9 @@ const isPrimeNumber = (n) => {
 const getQuestionAnswerPair = () => {
   const minNumber = 1;
   const maxNumber = 1000;
-  const question = getRandomInteger(minNumber, maxNumber);
-  const correctAnswer = isPrimeNumber(question);
-  return { question, correctAnswer };
+  const randomInteger = getRandomInteger(minNumber, maxNumber);
+  const correctAnswer = isPrimeNumber(randomInteger);
+  return { question: randomInteger, correctAnswer };
 };
 
 export default () => playGame(gameDescription, getQuestionAnswerPair);

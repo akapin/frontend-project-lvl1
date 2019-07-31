@@ -10,7 +10,7 @@ const getMathExpressionString = (minNumber, maxNumber) => {
   return `${a} ${operator} ${b}`;
 };
 
-const getCorrectAnswer = (expression) => {
+const getExpressionResult = (expression) => {
   const expressionArray = expression.split(' ');
   const a = Number(expressionArray[0]);
   const b = Number(expressionArray[2]);
@@ -35,9 +35,9 @@ const getCorrectAnswer = (expression) => {
 const getQuestionAnswerPair = () => {
   const minNumber = 0;
   const maxNumber = 100;
-  const question = getMathExpressionString(minNumber, maxNumber);
-  const correctAnswer = getCorrectAnswer(question);
-  return { question, correctAnswer };
+  const expressionString = getMathExpressionString(minNumber, maxNumber);
+  const expressionResult = getExpressionResult(expressionString);
+  return { question: expressionString, correctAnswer: expressionResult };
 };
 
 export default () => playGame(gameDescription, getQuestionAnswerPair);
