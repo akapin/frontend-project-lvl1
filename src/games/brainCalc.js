@@ -33,9 +33,9 @@ const getExpressionResult = (expression) => {
 };
 
 const getQuestionAnswerPair = () => {
-  const minNumber = 0;
-  const maxNumber = 100;
-  const expressionString = getMathExpressionString(minNumber, maxNumber);
+  const expressionMinNumber = 0;
+  const expressionMaxNumber = 100;
+  const expressionString = getMathExpressionString(expressionMinNumber, expressionMaxNumber);
   const expressionResult = getExpressionResult(expressionString);
   return { question: expressionString, correctAnswer: expressionResult };
 };
