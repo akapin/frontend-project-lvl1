@@ -14,8 +14,9 @@ export const playGame = (gameDescription, getQuestionAnswerPair) => {
   const gameRounds = 3;
   const correctAnswersCount = 0;
   greeting();
-  if (gameDescription) console.log(gameDescription);
+  console.log(gameDescription);
   const userName = getUserName();
+  if (!getQuestionAnswerPair) return;
 
   const iter = (acc) => {
     const { question, correctAnswer } = getQuestionAnswerPair();
@@ -30,9 +31,9 @@ export const playGame = (gameDescription, getQuestionAnswerPair) => {
     const correctAnswersCounter = acc + 1;
     if (correctAnswersCounter === gameRounds) {
       console.log(`Congratulations, ${userName}!`);
-    } else {
-      iter(correctAnswersCounter);
+      return;
     }
+    iter(correctAnswersCounter);
   };
-  if (getQuestionAnswerPair) iter(correctAnswersCount);
+  iter(correctAnswersCount);
 };
