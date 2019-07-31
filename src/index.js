@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export const greeting = () => console.log('Welcome to the Brain Games!');
+export const greetUser = () => console.log('Welcome to the Brain Games!');
 
 export const getUserName = () => {
   const userName = readlineSync.question('\nMay I have your name? ');
@@ -11,14 +11,15 @@ export const getUserName = () => {
 export const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 export const playGame = (gameDescription, getQuestionAnswerPair) => {
-  const gameRounds = 3;
-  const correctAnswersCount = 0;
-  greeting();
+  const numberOfGameRounds = 3;
+  const initialNumberOfCorrectAnswers = 0;
+  greetUser();
   console.log(gameDescription);
   const userName = getUserName();
   if (!getQuestionAnswerPair) return;
 
   const iter = (acc) => {
+    let correctAnswersCount = acc;
     const { question, correctAnswer } = getQuestionAnswerPair();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -28,12 +29,12 @@ export const playGame = (gameDescription, getQuestionAnswerPair) => {
       return;
     }
     console.log('Correct!');
-    const correctAnswersCounter = acc + 1;
-    if (correctAnswersCounter === gameRounds) {
+    correctAnswersCount += 1;
+    if (correctAnswersCount === numberOfGameRounds) {
       console.log(`Congratulations, ${userName}!`);
       return;
     }
-    iter(correctAnswersCounter);
+    iter(correctAnswersCount);
   };
-  iter(correctAnswersCount);
+  iter(initialNumberOfCorrectAnswers);
 };
