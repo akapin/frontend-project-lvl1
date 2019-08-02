@@ -6,9 +6,9 @@ const minNumber = 0;
 const maxNumber = 100;
 
 const isPrimeNumber = (number) => {
-  const sqrtNum = Math.floor(Math.sqrt(number));
+  const squareRootOfNumber = Math.floor(Math.sqrt(number));
   const startDivisor = 2;
-  for (let divisor = startDivisor; divisor < sqrtNum + 1; divisor += 1) {
+  for (let divisor = startDivisor; divisor < squareRootOfNumber + 1; divisor += 1) {
     if (number % divisor === 0) return false;
   }
   return number > 1;
