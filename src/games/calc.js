@@ -12,25 +12,25 @@ const getQuestionAnswerPair = () => {
   const secondOperand = getRandomInteger(minNumber, maxNumber);
   const randomIndex = getRandomInteger(startIndex, symbolMap.length);
   const operator = symbolMap.charAt(randomIndex);
-  const expressionString = `${firstOperand} ${operator} ${secondOperand}`;
+  const question = `${firstOperand} ${operator} ${secondOperand}`;
 
-  let expressionResult;
+  let correctAnswer;
 
   switch (operator) {
     case '+':
-      expressionResult = firstOperand + secondOperand;
+      correctAnswer = String(firstOperand + secondOperand);
       break;
     case '-':
-      expressionResult = firstOperand - secondOperand;
+      correctAnswer = String(firstOperand - secondOperand);
       break;
     case '*':
-      expressionResult = firstOperand * secondOperand;
+      correctAnswer = String(firstOperand * secondOperand);
       break;
     default:
       break;
   }
 
-  return { question: expressionString, correctAnswer: String(expressionResult) };
+  return { question, correctAnswer };
 };
 
 export default () => playGame(gameDescription, getQuestionAnswerPair);
