@@ -1,4 +1,5 @@
-import { playGame, getRandomInteger } from '..';
+import { playGame } from '..';
+import getRandomInteger from '../utils';
 
 const gameDescription = 'What number is missing in the progression?';
 

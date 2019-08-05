@@ -1,4 +1,5 @@
-import { playGame, getRandomInteger } from '..';
+import { playGame } from '..';
+import getRandomInteger from '../utils';
 
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 

@@ -6,8 +6,6 @@ export const getUserName = () => readlineSync.question('\nMay I have your name? 
 
 export const greetUser = userName => console.log(`Hello, ${userName}!\n`);
 
-export const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min) + min);
-
 export const playGame = (gameDescription, getQuestionAnswerPair) => {
   const numberOfGameRounds = 3;
   const initialNumberOfCorrectAnswers = 0;
