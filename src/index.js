@@ -9,8 +9,11 @@ export default (gameDescription, getQuestionAnswerPair) => {
   const userName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${userName}!\n`);
 
-  const iter = (acc) => {
-    let correctAnswersCount = acc;
+  const iter = (correctAnswersCount) => {
+    if (correctAnswersCount === numberOfGameRounds) {
+      console.log(`Congratulations, ${userName}!`);
+      return;
+    }
     const { question, correctAnswer } = getQuestionAnswerPair();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -21,12 +24,7 @@ export default (gameDescription, getQuestionAnswerPair) => {
       return;
     }
     console.log('Correct!');
-    correctAnswersCount += 1;
-    if (correctAnswersCount === numberOfGameRounds) {
-      console.log(`Congratulations, ${userName}!`);
-      return;
-    }
-    iter(correctAnswersCount);
+    iter(correctAnswersCount + 1);
   };
   iter(initialNumberOfCorrectAnswers);
 };
