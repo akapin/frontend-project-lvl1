@@ -7,14 +7,13 @@ const minStartNumber = 0;
 const maxStartNumber = 10;
 const minProgressionStep = 1;
 const maxProgressionStep = 10;
-const minHiddenItemPosition = 1;
-const maxHiddenItemPosition = 10;
+const minHiddenItemIndex = 0;
 
-const getProgressionString = (startNumber, progressionStep, hiddenItemPosition) => {
+const getProgressionString = (startNumber, progressionStep, hiddenItemIndex) => {
   let progressionString = '';
   let currentNumber = startNumber;
-  for (let i = 1; i <= numberOfSteps; i += 1) {
-    if (i !== hiddenItemPosition) {
+  for (let i = 0; i < numberOfSteps; i += 1) {
+    if (i !== hiddenItemIndex) {
       progressionString = `${progressionString}${currentNumber} `;
     } else {
       progressionString = `${progressionString}.. `;
@@ -27,9 +26,9 @@ const getProgressionString = (startNumber, progressionStep, hiddenItemPosition) 
 const getQuestionAnswerPair = () => {
   const startNumber = getRandomInteger(minStartNumber, maxStartNumber);
   const progressionStep = getRandomInteger(minProgressionStep, maxProgressionStep);
-  const hiddenItemPosition = getRandomInteger(minHiddenItemPosition, maxHiddenItemPosition);
-  const question = getProgressionString(startNumber, progressionStep, hiddenItemPosition);
-  const correctAnswer = String(startNumber + progressionStep * (hiddenItemPosition - 1));
+  const hiddenItemIndex = getRandomInteger(minHiddenItemIndex, numberOfSteps);
+  const question = getProgressionString(startNumber, progressionStep, hiddenItemIndex);
+  const correctAnswer = String(startNumber + progressionStep * hiddenItemIndex);
   return { question, correctAnswer };
 };
 
