@@ -1,4 +1,4 @@
-import { playGame } from '..';
+import playGame from '..';
 import getRandomInteger from '../utils';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';

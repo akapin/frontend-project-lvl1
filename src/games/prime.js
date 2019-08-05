@@ -1,4 +1,4 @@
-import { playGame } from '..';
+import playGame from '..';
 import getRandomInteger from '../utils';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"';
