@@ -1,8 +1,9 @@
 import readlineSync from 'readline-sync';
 
+const numberOfGameRounds = 3;
+const initialNumberOfCorrectAnswers = 0;
+
 export default (gameDescription, getQuestionAnswerPair) => {
-  const numberOfGameRounds = 3;
-  const initialNumberOfCorrectAnswers = 0;
   console.log('Welcome to the Brain Games!');
   console.log(gameDescription);
   const userName = readlineSync.question('\nMay I have your name? ');
