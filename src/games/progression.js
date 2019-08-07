@@ -14,10 +14,10 @@ const getProgressionString = (startNumber, progressionStep, hiddenItemIndex) => 
   let progressionString = '';
   let currentNumber = startNumber;
   for (let i = 0; i < numberOfSteps; i += 1) {
-    if (i !== hiddenItemIndex) {
-      progressionString = `${progressionString}${currentNumber} `;
-    } else {
+    if (i === hiddenItemIndex) {
       progressionString = `${progressionString}.. `;
+    } else {
+      progressionString = `${progressionString}${currentNumber} `;
     }
     currentNumber += progressionStep;
   }
